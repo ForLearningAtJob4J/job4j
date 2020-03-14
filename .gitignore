@@ -64,7 +64,7 @@ jrebel.lic
 *.ipr
 *.iws
 .*.sw?
-.idea/*
+.idea
 
 # paulp script
 /.lib/
