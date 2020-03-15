@@ -19,4 +19,5 @@ public class SquareTest {
         int[] rst = Square.calculate(bound);
         int[] expect = new int[] {0, 1, 4, 9, 16};
         assertThat(rst, is(expect));
-    }}
+    }
+}
