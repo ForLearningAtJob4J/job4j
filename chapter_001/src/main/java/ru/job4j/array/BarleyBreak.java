@@ -5,7 +5,7 @@ public class BarleyBreak {
         int[][] table = new int[3][3];
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[i].length; j++) {
-                table[i][j] = i * 3 + j + 1;
+                table[i][j] = i * table[i].length + j + 1;
             }
         }
 
