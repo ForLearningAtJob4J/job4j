@@ -7,7 +7,6 @@ public class Turn {
             int temp = array[dest];
             array[dest] = array[i];
             array[i] = temp;
-//            SwitchArray.swap(array, i, array.length - 1 - i);
         }
         return array;
     }
