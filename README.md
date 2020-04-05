@@ -9,3 +9,5 @@ I wrote here some other info
 To test git branches
 
 branch from IDEA
+
+Other remark in new branch
