@@ -5,6 +5,6 @@ import org.junit.Test;
 public class TigerTest {
     @Test
     public void createTiger() {
-        Tiger t = new Tiger();
+        Tiger t = new Tiger("Mikle");
     }
 }
