@@ -1,4 +1,4 @@
-package ru.job4j.ru.job4j.max;
+package ru.job4j.max;
 
 public class Reduce {
     private int[] array;
