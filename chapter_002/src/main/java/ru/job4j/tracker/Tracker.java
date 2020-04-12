@@ -44,15 +44,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        int size = 0;
-        Item[] newArray = new Item[position];
-        for (int index = 0; index < position; index++) {
-            if (items[index] != null) {
-                newArray[size] = items[index];
-                size++;
-            }
-        }
-        return Arrays.copyOf(newArray, size);
+        return Arrays.copyOf(items, position);
     }
 
     public Item[] findByName(String key) {
@@ -78,6 +70,18 @@ public class Tracker {
         if (index != -1) {
             item.setId(id);
             items[index] = item;
+            result = true;
+        }
+        return result;
+    }
+
+    public boolean delete(String id) {
+        boolean result = false;
+        int index = indexOf(id);
+        if (index != -1) {
+            System.arraycopy(items, index + 1, items, index, position - index);
+            items[position - 1] = null;
+            position--;
             result = true;
         }
         return result;
