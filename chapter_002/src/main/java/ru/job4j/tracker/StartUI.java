@@ -19,7 +19,7 @@ public class StartUI {
             } else if (select == 1) {
                 System.out.println("=== Show all items ===");
                 for (Item item: tracker.findAll()) {
-                    System.out.println("Id: " + item.getId() + "; Name: " + item.getName());
+                    System.out.println(item);
                 }
                 System.out.println("=== End list ===");
             } else if (select == 2) {
@@ -49,7 +49,7 @@ public class StartUI {
                 String id = scanner.nextLine();
                 Item item = tracker.findById(id);
                 if (item != null) {
-                    System.out.println("Id: " + item.getId() + "; Name: " + item.getName());
+                    System.out.println(item);
                 } else {
                     System.out.println("Task with specified ID was not found");
                 }
@@ -58,7 +58,7 @@ public class StartUI {
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 for (Item item: tracker.findByName(name)) {
-                    System.out.println("Id: " + item.getId() + "; Name: " + item.getName());
+                    System.out.println(item);
                 }
                 System.out.println("=== End list ===");
             } else if (select == 6) {
