@@ -3,6 +3,8 @@ package ru.job4j.tracker;
 import java.util.Arrays;
 import java.util.Random;
 
+import static java.lang.Math.abs;
+
 public class Tracker {
     /**
      * Массив для хранения заявок.
@@ -28,8 +30,8 @@ public class Tracker {
      * @return Уникальный ключ.
      */
     private String generateId() {
-        Random rm = new Random();
-        return String.valueOf(rm.nextLong() + System.currentTimeMillis());
+        Random rm = new Random(System.currentTimeMillis());
+        return String.valueOf(abs(rm.nextLong()));
     }
 
     private int indexOf(String id) {
