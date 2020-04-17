@@ -15,15 +15,9 @@ public class FactTest {
         assertThat(fact.calc(5), is(120));
     }
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void whenBadArgCalc()  {
         Fact fact = new Fact();
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(not(equalTo("")));
         fact.calc(-5);
-        thrown = ExpectedException.none();
     }
 }
