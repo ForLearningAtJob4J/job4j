@@ -26,8 +26,9 @@ public class ValidateInputTest {
 
     @Test
     public void whenInvalidInput() {
-        String[] data = {"one", "1"};
-        ValidateStubInput input = new ValidateStubInput(data);
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"one", "1"})
+        );
         input.askInt("Enter");
         assertThat(
                 out.toString(),
@@ -37,8 +38,9 @@ public class ValidateInputTest {
 
     @Test
     public void whenInvalidInputMaxNumber() {
-        String[] data = {"8", "1"};
-        ValidateInput input = new ValidateStubInput(data);
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"8", "1"})
+        );
         input.askInt("Enter", 6);
         assertThat(
                 out.toString(),
@@ -48,8 +50,9 @@ public class ValidateInputTest {
 
     @Test
     public void whenInvalidInputMinNumber() {
-        String[] data = {"-100", "1"};
-        ValidateInput input = new ValidateStubInput(data);
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"-100", "1"})
+        );
         input.askInt("Enter", 6);
         assertThat(
                 out.toString(),
