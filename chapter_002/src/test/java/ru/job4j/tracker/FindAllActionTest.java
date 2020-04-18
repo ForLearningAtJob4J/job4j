@@ -6,24 +6,21 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.StringJoiner;
 
-import static java.lang.Thread.sleep;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class FindAllActionTest {
 
     @Test
-    public void whenCheckOutput() throws InterruptedException {
+    public void whenCheckOutput() {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         PrintStream def = System.out;
         System.setOut(new PrintStream(out));
         Tracker tracker = new Tracker();
         Item item = new Item("fix bug");
         tracker.add(item);
-        sleep(1);
         Item item2 = new Item("bla-bla");
         tracker.add(item2);
-        sleep(1);
         Item item3 = new Item("don't jump you might fall");
         tracker.add(item3);
         FindAllAction act = new FindAllAction();

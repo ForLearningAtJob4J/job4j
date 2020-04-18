@@ -30,7 +30,7 @@ public class Tracker {
      * @return Уникальный ключ.
      */
     private String generateId() {
-        Random rm = new Random(System.currentTimeMillis());
+        Random rm = new Random(System.nanoTime());
         return String.valueOf(abs(rm.nextLong()));
     }
 

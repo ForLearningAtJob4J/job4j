@@ -6,23 +6,20 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.StringJoiner;
 
-import static java.lang.Thread.sleep;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class FindByNameActionTest {
     @Test
-    public void whenCheckOutput() throws InterruptedException {
+    public void whenCheckOutput() {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         PrintStream def = System.out;
         System.setOut(new PrintStream(out));
         Tracker tracker = new Tracker();
         Item item = new Item("fix bug");
         tracker.add(item);
-        sleep(1);
         tracker.add(new Item("i'll be back"));
         Item item3 = new Item("fix bug");
-        sleep(1);
         tracker.add(item3);
         FindByNameAction act = new FindByNameAction();
         act.execute(new StubInput(new String[] {"fix bug"}), tracker);
