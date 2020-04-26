@@ -17,10 +17,10 @@ public class PhoneDictionary {
     public ArrayList<Person> find(String key) {
         ArrayList<Person> result = new ArrayList<>();
         for (Person person: persons) {
-            if (person.getName().toUpperCase().contains(key.toUpperCase())
-                    || person.getSurname().toUpperCase().contains(key.toUpperCase())
-                    || person.getAddress().toUpperCase().contains(key.toUpperCase())
-                    || person.getPhone().toUpperCase().contains(key.toUpperCase())) {
+            if (person.getName().contains(key)
+                    || person.getSurname().contains(key)
+                    || person.getAddress().contains(key)
+                    || person.getPhone().contains(key)) {
                 result.add(person);
             }
         }
