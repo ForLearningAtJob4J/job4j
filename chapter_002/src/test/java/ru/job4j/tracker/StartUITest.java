@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.StringJoiner;
+import java.util.*;
 
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.core.Is.is;
@@ -15,7 +15,7 @@ public class StartUITest {
     public void whenAddItem() {
         Tracker tracker = new Tracker();
         new CreateAction().execute(new StubInput(new String[]{"Fix PC"}), tracker);
-        Item created = tracker.findAll()[0];
+        Item created = tracker.findAll().get(0);
         assertThat(created.getName(), is("Fix PC"));
     }
 
@@ -46,7 +46,7 @@ public class StartUITest {
                 new String[] {"0"}
         );
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[] {action});
+        new StartUI().init(input, new Tracker(), new ArrayList<>(List.of(action)));
         assertThat(action.isCall(), is(true));
     }
 
@@ -59,7 +59,7 @@ public class StartUITest {
                 new String[] {"0"}
         );
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[] {action});
+        new StartUI().init(input, new Tracker(), new ArrayList<>(List.of(action)));
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("Menu.")
                 .add("0. Stub action")

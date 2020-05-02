@@ -1,6 +1,9 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
@@ -17,39 +20,37 @@ public class TrackerTest {
 
     @Test
     public void whenFindAllThenReturnAll() {
-        Item[] expected = new Item[3];
+        ArrayList<Item> expected = new ArrayList<>();
         Tracker tracker = new Tracker();
         Item item = new Item("test1");
         tracker.add(item);
-        expected[0] = item;
+        expected.add(item);
         item = new Item("test2");
         tracker.add(item);
-        expected[1] = item;
+        expected.add(item);
         item = new Item("test3");
         tracker.add(item);
-        expected[2] = item;
-        Item[] result = tracker.findAll();
-        assertThat(result, is(expected));
+        expected.add(item);
+        assertThat(tracker.findAll(), is(expected));
     }
 
     @Test
     public void whenFindByNameThenReturnWithSameName() {
-        Item[] expected = new Item[2];
+        ArrayList<Item> expected = new ArrayList<>();
         Tracker tracker = new Tracker();
         Item item = new Item("google");
         tracker.add(item);
-        expected[0] = item;
+        expected.add(item);
         item = new Item("google");
         tracker.add(item);
-        expected[1] = item;
+        expected.add(item);
         item = new Item("test3");
         tracker.add(item);
-        Item[] result = tracker.findByName("google");
-        assertThat(result, is(expected));
+        assertThat(tracker.findByName("google"), is(expected));
     }
 
     @Test
-    public void whenFindtemById() {
+    public void whenFindItemById() {
         Tracker tracker = new Tracker();
         Item item = new Item("test1");
         tracker.add(item);
