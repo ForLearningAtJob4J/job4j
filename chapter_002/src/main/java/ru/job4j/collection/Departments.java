@@ -14,7 +14,7 @@ public class Departments {
             }
         }
         ArrayList<String> res = new ArrayList<>(tmp);
-        res.sort(Comparator.naturalOrder());
+        sortAsc(res);
         return res;
     }
 
