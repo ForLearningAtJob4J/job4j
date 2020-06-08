@@ -13,9 +13,7 @@ public class Departments {
                 head.append(el).append("/");
             }
         }
-        ArrayList<String> res = new ArrayList<>(tmp);
-        sortAsc(res);
-        return res;
+        return new ArrayList<>(tmp);
     }
 
     public static void sortAsc(List<String> orgs) {

@@ -16,6 +16,7 @@ public class DepartmentsTest {
         List<String> input = Arrays.asList("k1/sk1");
         List<String> expect = Arrays.asList("k1", "k1/sk1");
         List<String> result = Departments.fillGaps(input);
+        Departments.sortAsc(result);
         assertThat(result, is(expect));
     }
 
@@ -24,6 +25,7 @@ public class DepartmentsTest {
         List<String> input = Arrays.asList("k1", "k1/sk1");
         List<String> expect = Arrays.asList("k1", "k1/sk1");
         List<String> result = Departments.fillGaps(input);
+        Departments.sortAsc(result);
         assertThat(result, is(expect));
     }
 }
