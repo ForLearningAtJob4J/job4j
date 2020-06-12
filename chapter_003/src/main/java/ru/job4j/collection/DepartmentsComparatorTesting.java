@@ -17,7 +17,7 @@ public class DepartmentsComparatorTesting {
             String prefs = "";
             for (int j = 0; j < maxNesting; j++) {
                 deps.append(prefs).append("K").append(rm.nextInt(DEPTH) + 1).append('/');
-                prefs = new StringBuilder().append(prefs).append("S").toString();
+                prefs = prefs + "S";
             }
             deps = new StringBuilder(deps.substring(0, deps.length() - 1));
             inp.add(deps.toString());
