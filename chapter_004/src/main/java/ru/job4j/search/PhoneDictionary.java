@@ -19,11 +19,11 @@ public class PhoneDictionary {
                 .or(person -> person.getSurname().equals(key));
 
         ArrayList<Person> result = new ArrayList<>();
-        for (Person person : persons) {
+        persons.forEach(person -> {
             if (combine.test(person)) {
                 result.add(person);
             }
-        }
+        });
         return result;
     }
 }
