@@ -14,13 +14,12 @@ public class ProfilesTest {
     public void collectTest() {
         List<Profile> profiles = new ArrayList<>() { {
             add(new Profile(new Address("Town", "Street", 10, 1)));
-            add(new Profile(new Address("City", "Street", 11, 10)));
+            add(new Profile(new Address("City", "Avenue", 1, 11)));
             add(new Profile(new Address("City", "Avenue", 1, 11)));
         } };
         List<Address> expected = new ArrayList<>() { {
-            add(new Address("Town", "Street", 10, 1));
-            add(new Address("City", "Street", 11, 10));
             add(new Address("City", "Avenue", 1, 11));
+            add(new Address("Town", "Street", 10, 1));
         } };
         assertThat(Profile.Profiles.collect(profiles), is(expected));
     }
