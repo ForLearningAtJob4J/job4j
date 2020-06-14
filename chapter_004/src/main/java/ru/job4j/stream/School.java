@@ -13,16 +13,4 @@ public class School {
     List<Student> collect(List<Student> students, Predicate<Student> predict) {
         return students.stream().filter(predict).collect(Collectors.toList());
     }
-
-    public static void main(String[] args) {
-        Integer[] array = {1, 2, 3, 4, 5};
-        new Object() {
-            void twice() {
-                for (int i = 0; i < array.length; ++i) {
-                    array[i] *= 2;
-                }
-            }
-        }.twice();
-        Arrays.asList(array).forEach(System.out::println);
-    }
 }
