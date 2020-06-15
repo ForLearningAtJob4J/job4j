@@ -9,6 +9,10 @@ public class Student {
         this.surname = surname;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
     public boolean inA() {
         return score >= 70 && score <= 100;
     }

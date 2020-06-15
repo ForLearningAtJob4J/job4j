@@ -3,7 +3,9 @@ package ru.job4j.stream;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -45,6 +47,7 @@ public class SchoolTest {
         } };
         assertThat(result, is(expected));
     }
+
     @Test
     public void whenC() {
         School school = new School();
@@ -54,6 +57,17 @@ public class SchoolTest {
             add(new Student(20, "Иванов"));
             add(new Student(30, "Синицын"));
             add(new Student(40, "Воробьев"));
+        } };
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void whenBAndToMap() {
+        School school = new School();
+        Map<String, Student> result = school.collectToMap(students, Student::inB);
+        Map<String, Student> expected = new HashMap<>() { {
+            put("Воронов", new Student(50, "Воронов"));
+            put("Ястребов", new Student(60, "Ястребов"));
         } };
         assertThat(result, is(expected));
     }
