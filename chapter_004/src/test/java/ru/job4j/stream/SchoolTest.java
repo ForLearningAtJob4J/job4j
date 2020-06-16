@@ -64,10 +64,18 @@ public class SchoolTest {
     @Test
     public void whenBAndToMap() {
         School school = new School();
-        Map<String, Student> result = school.collectToMap(students, Student::inB);
+        Map<String, Student> result = school.collectToMap(students);
         Map<String, Student> expected = new HashMap<>() { {
+            put("Петров", new Student(10, "Петров"));
+            put("Иванов", new Student(20, "Иванов"));
+            put("Синицын", new Student(30, "Синицын"));
+            put("Воробьев", new Student(40, "Воробьев"));
             put("Воронов", new Student(50, "Воронов"));
             put("Ястребов", new Student(60, "Ястребов"));
+            put("Коршунов", new Student(70, "Коршунов"));
+            put("Волков", new Student(80, "Волков"));
+            put("Медведев", new Student(90, "Медведев"));
+            put("Зайцев", new Student(100, "Зайцев"));
         } };
         assertThat(result, is(expected));
     }
