@@ -12,37 +12,34 @@ public class BankService {
     }
 
     public void addAccount(String passport, Account account) {
-        User user = findByPassport(passport);
-        if (!Objects.isNull(user)) {
+        findByPassport(passport).ifPresent(user -> {
             ArrayList<Account> accounts = (ArrayList<Account>) users.get(user);
             if (!accounts.contains(account)) {
                 accounts.add(account);
             }
-        }
+        });
     }
 
-    public User findByPassport(String passport) {
-        return users.keySet().stream().filter(user -> user.getPassport().equals(passport)).findFirst().orElse(null);
+    public Optional<User> findByPassport(String passport) {
+        return users.keySet().stream().filter(user -> user.getPassport().equals(passport)).findFirst();
     }
 
-    public Account findByRequisite(String passport, String requisite) {
-        User user = findByPassport(passport);
-        if (!Objects.isNull(user)) {
-            return users.get(user).stream().filter(account -> account.getRequisite().equals(requisite)).findFirst().orElse(null);
-        }
-        return null;
+    public Optional<Account> findByRequisite(String passport, String requisite) {
+        return findByPassport(passport).flatMap(
+                user -> users.get(user).stream().filter(account -> account.getRequisite().equals(requisite)).findFirst()
+        );
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
-        Account srcAccount = findByRequisite(srcPassport, srcRequisite);
-        Account destAccount = findByRequisite(destPassport, destRequisite);
-        if (srcAccount != null && destAccount != null) {
-            double srcBalance = srcAccount.getBalance();
+        Optional<Account> srcOptAccount = findByRequisite(srcPassport, srcRequisite);
+        Optional<Account> destOptAccount = findByRequisite(destPassport, destRequisite);
+        if (srcOptAccount.isPresent() && destOptAccount.isPresent()) {
+            double srcBalance = srcOptAccount.get().getBalance();
             if (srcBalance - amount >= 0) {
-                srcAccount.setBalance(srcBalance - amount);
-                destAccount.setBalance(destAccount.getBalance() + amount);
+                srcOptAccount.get().setBalance(srcBalance - amount);
+                destOptAccount.get().setBalance(destOptAccount.get().getBalance() + amount);
                 rsl = true;
             }
         }
