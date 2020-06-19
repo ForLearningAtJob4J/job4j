@@ -1,16 +1,26 @@
 package ru.job4j.stream;
 
+import java.util.Objects;
+
 public class Student {
     int score;
     String surname;
 
-    public Student(int score, String surname) {
+    public Student(String surname, int score) {
         this.score = score;
         this.surname = surname;
     }
 
     public String getSurname() {
         return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public int getScore() {
+        return score;
     }
 
     public boolean inA() {
@@ -36,11 +46,12 @@ public class Student {
 
         Student student = (Student) o;
 
-        return surname.equals(student.surname);
+        return score == student.score
+                && surname.equals(student.surname);
     }
 
     @Override
     public int hashCode() {
-        return surname.hashCode();
+        return Objects.hash(score, surname);
     }
 }
