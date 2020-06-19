@@ -12,16 +12,16 @@ import static org.junit.Assert.*;
 
 public class SchoolTest {
     List<Student> students = new ArrayList<>() { {
-        add(new Student(10, "Петров"));
-        add(new Student(20, "Иванов"));
-        add(new Student(30, "Синицын"));
-        add(new Student(40, "Воробьев"));
-        add(new Student(50, "Воронов"));
-        add(new Student(60, "Ястребов"));
-        add(new Student(70, "Коршунов"));
-        add(new Student(80, "Волков"));
-        add(new Student(90, "Медведев"));
-        add(new Student(100, "Зайцев"));
+        add(new Student("Петров", 10));
+        add(new Student("Иванов", 20));
+        add(new Student("Синицын", 30));
+        add(new Student("Воробьев", 40));
+        add(new Student("Воронов", 50));
+        add(new Student("Ястребов", 60));
+        add(new Student("Коршунов", 70));
+        add(new Student("Волков", 80));
+        add(new Student("Медведев", 90));
+        add(new Student("Зайцев", 100));
     } };
 
     @Test
@@ -29,10 +29,10 @@ public class SchoolTest {
         School school = new School();
         List<Student> result = school.collect(students, Student::inA);
         List<Student> expected = new ArrayList<>() { {
-            add(new Student(70, "Коршунов"));
-            add(new Student(80, "Волков"));
-            add(new Student(90, "Медведев"));
-            add(new Student(100, "Зайцев"));
+            add(new Student("Коршунов", 70));
+            add(new Student("Волков", 80));
+            add(new Student("Медведев", 90));
+            add(new Student("Зайцев", 100));
         } };
         assertThat(result, is(expected));
     }
@@ -42,8 +42,8 @@ public class SchoolTest {
         School school = new School();
         List<Student> result = school.collect(students, Student::inB);
         List<Student> expected = new ArrayList<>() { {
-            add(new Student(50, "Воронов"));
-            add(new Student(60, "Ястребов"));
+            add(new Student("Воронов", 50));
+            add(new Student("Ястребов", 60));
         } };
         assertThat(result, is(expected));
     }
@@ -53,10 +53,10 @@ public class SchoolTest {
         School school = new School();
         List<Student> result = school.collect(students, Student::inC);
         List<Student> expected = new ArrayList<>() { {
-            add(new Student(10, "Петров"));
-            add(new Student(20, "Иванов"));
-            add(new Student(30, "Синицын"));
-            add(new Student(40, "Воробьев"));
+            add(new Student("Петров", 10));
+            add(new Student("Иванов", 20));
+            add(new Student("Синицын", 30));
+            add(new Student("Воробьев", 40));
         } };
         assertThat(result, is(expected));
     }
@@ -66,16 +66,16 @@ public class SchoolTest {
         School school = new School();
         Map<String, Student> result = school.collectToMap(students);
         Map<String, Student> expected = new HashMap<>() { {
-            put("Петров", new Student(10, "Петров"));
-            put("Иванов", new Student(20, "Иванов"));
-            put("Синицын", new Student(30, "Синицын"));
-            put("Воробьев", new Student(40, "Воробьев"));
-            put("Воронов", new Student(50, "Воронов"));
-            put("Ястребов", new Student(60, "Ястребов"));
-            put("Коршунов", new Student(70, "Коршунов"));
-            put("Волков", new Student(80, "Волков"));
-            put("Медведев", new Student(90, "Медведев"));
-            put("Зайцев", new Student(100, "Зайцев"));
+            put("Петров", new Student("Петров", 10));
+            put("Иванов", new Student("Иванов", 20));
+            put("Синицын", new Student("Синицын", 30));
+            put("Воробьев", new Student("Воробьев", 40));
+            put("Воронов", new Student("Воронов", 50));
+            put("Ястребов", new Student("Ястребов", 60));
+            put("Коршунов", new Student("Коршунов", 70));
+            put("Волков", new Student("Волков", 80));
+            put("Медведев", new Student("Медведев", 90));
+            put("Зайцев", new Student("Зайцев", 100));
         } };
         assertThat(result, is(expected));
     }
