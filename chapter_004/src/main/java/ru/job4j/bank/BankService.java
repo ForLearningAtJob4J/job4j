@@ -1,8 +1,6 @@
 package ru.job4j.bank;
 
 import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class BankService {
     private final Map<User, List<Account>> users = new HashMap<>();
