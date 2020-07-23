@@ -1,13 +1,16 @@
 package ru.job4j.stream;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Spliterator;
+import java.util.Spliterators;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 public class FlatIt {
     public static List<Integer> flatten(Iterator<Iterator<Integer>> it) {
-        List<Integer> list = new ArrayList<>();
-        it.forEachRemaining(integerIterator -> integerIterator.forEachRemaining(list::add));
-        return list;
+        return StreamSupport.stream(Spliterators.spliteratorUnknownSize(it, Spliterator.ORDERED), false)
+                .flatMap(integerIterator -> StreamSupport.stream(Spliterators.spliteratorUnknownSize(integerIterator, Spliterator.ORDERED), false))
+                .collect(Collectors.toList());
     }
 }
