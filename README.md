@@ -14,4 +14,4 @@ branch from IDEA
 
 Other remark in new branch
 
-Check from the secret place
+Check from the secret place из секретного места
