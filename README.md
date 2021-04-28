@@ -18,6 +18,8 @@ Check from the secret place из секретного места
 
 В курсе производилась работа с ветками git.
 
+Creating branches in IDEA
+
 1 fix
 
 Два фикс
