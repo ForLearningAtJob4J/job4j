@@ -16,6 +16,8 @@ Other remark in new branch
 
 Check from the secret place из секретного места
 
+В курсе производилась работа с ветками git.
+
 1 fix
 
 Два фикс
